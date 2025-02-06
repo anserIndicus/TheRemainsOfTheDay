@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "The Remains of the Day",
+  "version": "1.0.0",
+  "description": "自动收集浏览器内的图文输入输出信息，生成日报及星期维度日程表",
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "history",
+    "alarms"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background/index.js"
+  },
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      //"32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    //"32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content/index.js"],
+      "css": ["content/styles.css"]
+    }
+  ],
+  "options_page": "options/index.html"
+}
